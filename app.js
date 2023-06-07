@@ -16,7 +16,7 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json({extended:true}))
 app.use(
   cors({origin:"http://localhost:4200"
-       }
+       })
 )
 
 app.use(morgan("dev"))
