@@ -14,6 +14,10 @@ const mongoose =require('mongoose')
 // })
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json({extended:true}))
+app.use(
+  cors({origin:"http://localhost:4200"
+       }
+)
 
 app.use(morgan("dev"))
 const uri = "mongodb+srv://radhika:radhika123@cluster0.f225zvy.mongodb.net/test"
