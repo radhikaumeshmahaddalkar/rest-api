@@ -4,6 +4,8 @@ const productsRouter= require('./routes/products')
 const morgan= require('morgan')
 const bodyparser =require('body-parser')
 const mongoose =require('mongoose')
+const cors = require('cors')
+require('dotenv').config()
 
 
 
@@ -14,10 +16,15 @@ const mongoose =require('mongoose')
 // })
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json({extended:true}))
+app.use(
+    cors({
+        origin: "http://localhost:4200"
+    })
+)
 
 app.use(morgan("dev"))
-const uri = "mongodb+srv://radhika:radhika123@cluster0.f225zvy.mongodb.net/test"
-mongoose.connect(uri)
+//const uri = "mongodb+srv://radhika:radhika123@cluster0.f225zvy.mongodb.net/test"
+mongoose.connect(process.env.mongoConnection)
 
 app.use('/products', productsRouter)
 
