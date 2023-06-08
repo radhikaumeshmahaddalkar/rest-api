@@ -21,8 +21,8 @@ app.use(
 )
 
 app.use(morgan("dev"))
-const uri = "mongodb+srv://radhika:radhika123@cluster0.f225zvy.mongodb.net/test"
-mongoose.connect(uri)
+
+mongoose.connect(process.env.mongoConnection)
 
 app.use('/products', productsRouter)
 
