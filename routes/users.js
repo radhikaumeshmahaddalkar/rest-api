@@ -1,12 +1,12 @@
 const express=require('express')
 const router = express.Router()
 const mongoose =require('mongoose')
-const Product = require('../model/product')
-const productController= require('../controller/product_model')
+const Product = require('../model/user')
+const usersController= require('../controller/users_model')
 
 //Handle a GET request for product
 
-router.get('/',productController.getProduct)
+router.get('/',usersController.getUsers)
 // (req,res)=>{
 //     res.status(200).json({
 //         msg:"This is a GET request for product"
@@ -15,7 +15,7 @@ router.get('/',productController.getProduct)
 
 //Handle POST request for product
 
-router.post('/',productController.createProduct)
+router.post('/',usersController.createUsers)
 // (req,res)=>{
 //     //  console.log(req.body)
 //     //  console.log(req.body.name)
@@ -64,7 +64,7 @@ router.post('/',productController.createProduct)
 //     })
 // })
 
-router.get('/:productId',productController.getProductById)
+router.get('/:userId',usersController.getUsersById)
 // (req,res)=>{
 //     const id= req.params.productId
 //     if(id=='7'){
@@ -82,7 +82,7 @@ router.get('/:productId',productController.getProductById)
 
 //Handle a PUT request for  product
 
-router.put('/:productId',productController.updateProduct)
+router.put('/:userId',usersController.updateUser)
 // (req,res)=>{
 //     const id = req.params.productId
 //     res.status(200).json({
@@ -93,7 +93,7 @@ router.put('/:productId',productController.updateProduct)
 
 //Handle a DELETE request for  product
 
-router.delete('/:productId',productController.deleteProduct)
+router.delete('/:userId',usersController.deleteUser)
 // (req,res)=>{
 //     const id = req.params.productId
 //     res.status(200).json({
